@@ -1,0 +1,12 @@
+micronaut:
+  application:
+    name: webservices_labb2
+mongodb:
+  uri: mongodb://${MONGO_USERNAME:root}:${MONGO_PASSWORD:password}@${MONGO_HOST:localhost}:${MONGO_PORT:27017}
+db:
+  name: 'mydb'
+  collection: 'book'
+netty:
+  default:
+    allocator:
+      max-order: 3

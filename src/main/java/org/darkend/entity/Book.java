@@ -8,7 +8,7 @@ import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
 @Introspected
-@Serdeable.Deserializable
+@Serdeable
 public class Book {
 
     @NonNull

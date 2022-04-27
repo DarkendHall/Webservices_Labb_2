@@ -123,6 +123,18 @@
             <plugin>
                 <groupId>io.micronaut.build</groupId>
                 <artifactId>micronaut-maven-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <nativeImageBuildArgs>
+                        <arg>-H:+PrintClassInitialization</arg>
+                        <arg>
+                            --trace-class-initialization=org.bson.codecs.BsonTypeClassMap,org.bson.BsonDocument,org.bson.codecs.BsonValueCodecProvider,org.bson.conversions.Bson,org.bson.codecs.jsr310.Jsr310CodecProvider,org.bson.BsonType
+                        </arg>
+                        <arg>
+                            --initialize-at-run-time=io.micronaut.data.mongodb.operations.AbstractMongoRepositoryOperations,io.micronaut.data.mongodb.operations.DefaultMongoStoredQuery,io.micronaut.data.mongodb.operations.MongoUtils$1,io.micronaut.configuration.mongo.reactive.health.$MongoHealthIndicator$Definition,io.micronaut.data.mongodb.init.$MongoCollectionsCreator$Definition,io.micronaut.data.mongodb.operations.$DefaultMongoRepositoryOperations$Definition,io.micronaut.data.mongodb.transaction.$TransactionalClientSessionInterceptor$Definition,io.micronaut.data.mongodb.database.$MongoFactory$PrimaryMongoDatabaseFactory0$Definition,io.micronaut.transaction.jdbc.$DelegatingDataSourceResolver$Definition,io.micronaut.transaction.jdbc.$DelegatingDataSourceResolver$Definition,io.micronaut.data.mongodb.transaction.$MongoSynchronousTransactionManager$Definition,io.micronaut.data.mongodb.transaction.$TransactionalClientSession$Intercepted$Definition,io.micronaut.configuration.mongo.sync.$DefaultMongoClientFactory$MongoClient0$Definition,io.micronaut.configuration.mongo.sync.$NamedMongoClientFactory$MongoClient0$Definition,io.micronaut.configuration.mongo.sync.$NamedMongoClientFactory$MongoClient0$Definition,io.micronaut.data.mongodb.database.$MongoFactory$NamedMongoDatabaseFactory1$Definition
+                        </arg>
+                    </nativeImageBuildArgs>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -151,7 +163,7 @@
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <arg>-Amicronaut.processing.group=org.darkend</arg>
-                        <arg>-Amicronaut.processing.module=webservices_labb2</arg>
+                        <arg>-Amicronaut.processing.module=webservices_labb_two</arg>
                     </compilerArgs>
                 </configuration>
             </plugin>

@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  ACTOR: ${{github.actor}}
 
 jobs:
   build-and-push-image:
@@ -33,8 +33,15 @@ jobs:
         uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
+          username: ${{ env.ACTOR }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set ACTOR_LC environment variable
+        run: |
+          echo "ACTOR_LC=${ACTOR,,}" >>${GITHUB_ENV}
+
+      - name: Tag docker image
+        run: docker image tag webservices_labb_two ghcr.io/darkendhall/webservices_labb_two:latest
+
       - name: Push docker image
-        run: docker push ${{ github.actor }}/${{ github.repository }}:latest
+        run: docker push ghcr.io/darkendhall/webservices_labb_two:latest

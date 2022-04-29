@@ -1,34 +1,20 @@
-## Micronaut 3.4.2 Documentation
+## Webservices Labb 2
 
-- [User Guide](https://docs.micronaut.io/3.4.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.4.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.4.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+| Environment Variables | Description                         | Default   |
+|-----------------------|-------------------------------------|-----------|
+| MONGO_USERNAME        | The username for the MongoDB Server | root      |
+| MONGO_PASSWORD        | The password for the MongoDB Server | password  |
+| MONGO_HOST            | The host for the MongoDB Server     | localhost |
+| MONGO_PORT            | The port for the MongoDB Server     | 27017     |
 
----
+To run the program try the following command:
 
-## Feature http-client documentation
+The application should be launched on the same network as the MongoDB server, if the mongodb server is running on the
+same machine as the application and in a docker container, use the following command:
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+```
+docker run -e MONGO_HOST=<mongodb-container-name> --network <mongodb-network-name> -p 8080:8080 ghcr.io/darkendhall/webservices_labb_two:latest
+```
 
-## Feature testcontainers documentation
-
-- [https://www.testcontainers.org/](https://www.testcontainers.org/)
-
-## Feature kubernetes-reactor-client documentation
-
-- [Micronaut Kubernetes Reactor Client documentation](https://micronaut-projects.github.io/micronaut-kubernetes/latest/guide/#kubernetes-client)
-
-- [https://github.com/kubernetes-client/java/wiki](https://github.com/kubernetes-client/java/wiki)
-
-## Feature mongo-reactive documentation
-
-- [Micronaut MongoDB Reactive Driver documentation](https://micronaut-projects.github.io/micronaut-mongodb/latest/guide/index.html)
-
-- [https://docs.mongodb.com](https://docs.mongodb.com)
-
-## Feature data-mongodb-async documentation
-
-- [Micronaut Data MongoDB Async documentation](https://micronaut-projects.github.io/micronaut-data/latest/guide/#mongo)
-
-- [https://docs.mongodb.com](https://docs.mongodb.com)
+Don't forget to add `-e MONGO_USERNAME=<username>` and `-e MONGO_PASSWORD=<password>` to set the username and password
+for the MongoDB server.

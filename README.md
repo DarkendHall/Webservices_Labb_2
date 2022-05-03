@@ -1,4 +1,4 @@
-## Webservices Labb 2
+## Webservices Examination 2
 
 | Environment Variables | Description                         | Default   |
 |-----------------------|-------------------------------------|-----------|
